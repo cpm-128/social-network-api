@@ -47,20 +47,97 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 - *Mongoose* Object-Document-Mapping
 
 ## Usage
-To access a community of tech professionals who share blog posts of new information or technologies and commentary on the blogs.
+An API for a social network web applications that functions at speed with large amounts of data and flexibility with unstructured data.
 
 ## Mock-Up
-<img src="./images/tech-blog_mockup.gif">
+**Users: Create-Read-Update-Delete**
+
+Create User<br>
+<img src="./images/mockups/create-user.png">
+
+Read All User<br>
+<img src="./images/mockups/get-users.png">
+
+Read Single User<br>
+<img src="./images/mockups/get-single-user.png">
+
+Update User<br>
+<img src="./images/mockups/update-user.png">
+
+Delete User<br>
+<img src="./images/mockups/delete-user.png">
+
+**Thoughts: Create-Read-Update-Delete**
+
+Create Thought<br>
+n/a
+
+Read All Thought<br>
+<img src="./images/mockups/get-thoughts.png">
+
+Read Single Thought<br>
+<img src="./images/mockups/get-single-thought.png">
+
+Update Thought<br>
+n/a
+
+Delete Thought<br>
+n/a
+
+**Reactions to Thoughts: Update-Delete**
+
+Update Reaction<br>
+n/a
+
+Delete Reaction<br>
+n/a
+
+**Friends: Create-Delete**
+
+Post Friend<br>
+<img src="./images/mockups/update-friend-list.png">
+
+Delete Friend<br>
+<img src="./images/mockups/delete-friend.png">
 
 ## Deployed Application
-Live url: https://whispering-dusk-78788.herokuapp.com/<br>
-Repo url: https://github.com/cpm-128/tech-blog
+Live url: TBD<br>
+Repo url: TBD
 
 ### Screencapture
-<img src="./images/the-tech-blog_deployed.png">
+**Users: Create-Read-Update-Delete**
+
+Create User<br>
+Read All User<br>
+Read Single User<br>
+Update User<br>
+Delete User<br>
+
+**Thoughts: Create-Read-Update-Delete**
+
+Create Thought<br>
+Read All Thought<br>
+Read Single Thought<br>
+Update Thought<br>
+Delete Thought<br>
+
+**Reactions to Thoughts: Update-Delete**
+
+Update Reaction<br>
+Delete Reaction<br>
+
+**Friends: Create-Delete**
+
+Create Friend<br>
+Delete Friend<br>
 
 ## Contributors
-Some bonus starter code provided by UNC Chapel Hill Bootcamp.
+Colleen Maher is a front-end web developer with a background in marketing, operations, and project management.
+
+Trained at UNC Chapel Hill to earn a Professional Certificate in full-stack web development. Newly developed skills include JavaScript, managing databases, responsive web design, and following the Model-View-Controller paradigm. I am an organized and detail-oriented coder wanting to create and contribute to improved user-experiences and database management in an increasingly digital world. Strengths in creativity, teamwork, and building projects from ideation to execution.
+
+<a href="https://github.com/cpm-128" target="_blank">GitHub Profile</a>
+
 ## License
 MIT License
 
