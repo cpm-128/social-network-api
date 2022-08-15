@@ -118,11 +118,11 @@ const thoughtController = {
     },
 
     // DELETE a reaction from a thought
-    removeReaction({ params }, res) {
+    removeReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
             // remove the specific reaction from the reactions array where the reactionId matches the value of the params.reactionId passed in from the route
-            { $pull: { reactions: { reactionId: params.reactionId } } },
+            { $pull: { reactions: { reactionId: body.reactionId } } },
             { new: true }
         )
             .then(dbRemoveReactionData => res.json(dbRemoveReactionData))
