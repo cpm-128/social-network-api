@@ -12,8 +12,9 @@ const thoughtController = {
         Thought.create(body)
             .then(({ _id }) => {
                 console.log('>> thought id >>', _id)
+                console.log('>> user _id >>', params.userId)
                 return User.findOneAndUpdate(
-                    { _id: params.userId },
+                    { _id: body.userId },
                     { $push: { thoughts: _id } },
                     { new: true }
                 );
@@ -21,6 +22,7 @@ const thoughtController = {
             .then(dbAddThoughtData => {
                 if (!dbAddThoughtData) {
                     res.status(404).json({ message: 'No user found with thid id.' });
+                    console.log('>> TAKE II user _id >>', params.userId)
                     return;
                 }
                 res.json(dbAddThoughtData);
