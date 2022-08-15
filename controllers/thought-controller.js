@@ -73,7 +73,7 @@ const thoughtController = {
 
     // DELETE thought by _id
     // then use its id to REMOVE it from the user it's associated with
-    removeThought({ params }, res) {
+    removeThought({ params, body }, res) {
         Thought.findOneAndDelete({ _id: params.id })
             .then(deletedThought => {
                 console.log('>> thought: params.id >>', params.id)
@@ -82,8 +82,8 @@ const thoughtController = {
                 }
                 return User.findOneAndUpdate(
                     //TODO: THE USERID IS NOT IN THE PARAMS
-                    { _id: params.userId },
-                    { $pull: { thoughts: params.thoughtId } },
+                    { _id: body.userId },
+                    { $pull: { thoughts: params.id } },
                     { new: true }
                 );
             })
