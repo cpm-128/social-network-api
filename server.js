@@ -10,10 +10,10 @@ app.use(express.static('public')); //TODO: this isn't needed?
 
 app.use(require('./routes'));
 
-mongoose.connect(process.env.MONGODB_URI) || 'mongodb://localhost:27017/social-network-api', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/social-network-api', {
     useNewUrlParser: true,
     useUnifiedTopology: true
-};
+});
 
 // log mongo queries that are being executed
 mongoose.set('debug', true);

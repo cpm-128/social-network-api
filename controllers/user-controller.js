@@ -7,12 +7,13 @@ const userController = {
         // referencing the User model using the mongoose 'find' method
         User.find({})
         // populate the thoughts with the thoughtBody, not just the thoughtId
-        .populate({
-            path: 'thoughts',
-            select: '-__v'
-        })
+        //TODO: uncomment out the populate callback when the 'thoughts' path exists
+        // .populate({
+        //     path: 'thoughts',
+        //     select: '-__v'
+        // })
         .select('-__v')
-        // mongoose sort method, descending by id aka newest first
+        // // mongoose sort method, descending by id aka newest first
         .sort({ _id: -1 })
         .then(dbAllUserData => res.json(dbAllUserData))
         .catch(err => {
@@ -25,10 +26,11 @@ const userController = {
     getSingleUserById({ params }, res) {
         User.findOne({ _id: params.id })
         // populate the thoughts with the thoughtBody
-        .populate({
-            path: 'thoughts',
-            select: '-__v'
-        })
+        //TODO: uncomment out the populate callback when the 'thoughts' path exists
+        // .populate({
+        //     path: 'thoughts',
+        //     select: '-__v'
+        // })
         .select('-__v')
         .then(dbSingleUserData => {
             // if no user, send 404 error
