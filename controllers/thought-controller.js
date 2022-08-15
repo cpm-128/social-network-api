@@ -12,7 +12,7 @@ const thoughtController = {
         Thought.create(body)
             .then(({ _id }) => {
                 console.log('>> thought id >>', _id)
-                console.log('>> user _id >>', params.userId)
+                console.log('>> user _id >>', body.userId)
                 return User.findOneAndUpdate(
                     { _id: body.userId },
                     { $push: { thoughts: _id } },
@@ -22,7 +22,6 @@ const thoughtController = {
             .then(dbAddThoughtData => {
                 if (!dbAddThoughtData) {
                     res.status(404).json({ message: 'No user found with thid id.' });
-                    console.log('>> TAKE II user _id >>', params.userId)
                     return;
                 }
                 res.json(dbAddThoughtData);
@@ -75,12 +74,14 @@ const thoughtController = {
     // DELETE thought by _id
     // then use its id to REMOVE it from the user it's associated with
     removeThought({ params }, res) {
-        Thought.findOneAndDelete({ _id: params.thoughtId })
+        Thought.findOneAndDelete({ _id: params.id })
             .then(deletedThought => {
+                console.log('>> thought: params.id >>', params.id)
                 if (!deletedThought) {
                     return res.status(404).json({ message: 'No thought found with this id.' });
                 }
                 return User.findOneAndUpdate(
+                    //TODO: THE USERID IS NOT IN THE PARAMS
                     { _id: params.userId },
                     { $pull: { thoughts: params.thoughtId } },
                     { new: true }
