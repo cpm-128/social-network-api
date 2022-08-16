@@ -101,35 +101,10 @@ Delete Friend<br>
 <img src="./images/mockups/delete-friend.png">
 
 ## Deployed Application
-Live url: TBD<br>
-Repo url: TBD
+Repo url: https://github.com/cpm-128/social-network-api
 
 ### Screencapture
-**Users: Create-Read-Update-Delete**
-
-Create User<br>
-Read All User<br>
-Read Single User<br>
-Update User<br>
-Delete User<br>
-
-**Thoughts: Create-Read-Update-Delete**
-
-Create Thought<br>
-Read All Thought<br>
-Read Single Thought<br>
-Update Thought<br>
-Delete Thought<br>
-
-**Reactions to Thoughts: Update-Delete**
-
-Update Reaction<br>
-Delete Reaction<br>
-
-**Friends: Create-Delete**
-
-Create Friend<br>
-Delete Friend<br>
+Video Walk-through: <a href="https://drive.google.com/file/d/1VUABkrLx8SeNxgQ5ebhyHdP6DFEFhpC0/view?usp=sharing" target="_blank">Watch here.</a>
 
 ## Contributors
 Colleen Maher is a front-end web developer with a background in marketing, operations, and project management.
