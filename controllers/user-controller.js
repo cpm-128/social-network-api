@@ -1,13 +1,15 @@
 const { User } = require('../models');
 
 const userController = {
+//======
+// USERS
+//======
 
     // GET all users method
     getAllUser(req, res) {
         // referencing the User model using the mongoose 'find' method
         User.find({})
         // populate the thoughts with the thoughtBody, not just the thoughtId
-        //TODO: uncomment out the populate callback when the 'thoughts' path exists
         .populate({
             path: 'thoughts',
             select: '-__v'
@@ -26,7 +28,6 @@ const userController = {
     getSingleUserById({ params }, res) {
         User.findOne({ _id: params.id })
         // populate the thoughts with the thoughtBody
-        //TODO: uncomment out the populate callback when the 'thoughts' path exists
         .populate({
             path: 'thoughts',
             select: '-__v'
@@ -80,6 +81,53 @@ const userController = {
                 res.json(dbDeleteUserData);
             })
             .catch(err => res.status(400).json(err));
+    },
+
+//========
+// FRIENDS
+//========
+    // CREATE/POST a new friends to a user's friend list
+    addFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $push: { friends: params.friendId } },
+            { new: true }
+        )
+        .populate({
+            path: 'friends',
+            select: ('-__v')
+        })
+        .select('-__v')
+        .then(dbAddFriendData => {
+            if (!dbAddFriendData) {
+                res.status(404).json({ message: 'No user found with this id.' });
+                return;
+            }
+            res.json(dbAddFriendData)
+        })
+        .catch(err => res.json(err));
+    },
+
+    // DELETE a friend from a user's friend list
+    removeFriend({ params }, res) {
+        User.findOneAndUpdate(
+            { _id: params.userId },
+            { $pull: { friends: params.friendId } },
+            { new: true }
+        )
+        .populate({
+            path: 'friends',
+            select: ('-__v')
+        })
+        .select('-__v')
+        .then(dbRemoveFriendData => {
+            if (!dbRemoveFriendData) {
+                res.status(404).json({ message: 'No user found with this is.' });
+                return;
+            }
+            res.json(dbRemoveFriendData)
+        })
+        .catch(err => res.json(err));
     }
 };
 
